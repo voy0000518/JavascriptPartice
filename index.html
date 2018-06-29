@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>TODOList</title>
+	</head>
+	<body>
+		<h1>TODOJS</h1>
+		<input type="text" id="things" name="things">
+		<button id="send">確認送出</button>
+		<ul id="result">
+		</ul>
+
+		<script type="text/javascript">
+			var send = document.getElementById("send");
+			send.addEventListener('click' , function(){
+				var things = document.getElementById("things").value;
+				if(things !== ''){
+                    var todoo = document.createElement('LI');
+					todoo.innerHTML = things +'<button>x</button>' ;
+					result.appendChild(todoo);
+                    document.getElementById("things").value = '';
+				}else{
+					//alert('do1');
+					alert("請輸入值");
+				}
+				
+				
+			});
+
+			result.addEventListener('click', function(e){
+               //console.log(e.target.parentNode);
+               //(.target 是子元素)父元素 而要刪除該父元素只能夠由父元素的父元素刪除
+                e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+			});
+		</script>
+	</body>
+</html>
